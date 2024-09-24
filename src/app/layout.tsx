@@ -28,7 +28,7 @@ export default function RootLayout({
 				<meta property='og:url' content='https://dlfrl.paulleflon.fr'/>
 				<meta property='og:title' content='일기'/>
 				<meta property='og:description' content='일기를 쉽게 쓰려고'/>
-				<meta property='og:image' content='https://dlfrl.paulleflon.fr	/og-image.png'/>
+				<meta property='og:image' content='https://dlfrl.paulleflon.fr/og-image.png'/>
 
 				<meta property='twitter:card' content='summary_large_image'/>
 				<meta property='twitter:url' content='https://dlfrl.twitter.paulleflon.fr'/>
