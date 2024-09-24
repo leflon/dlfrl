@@ -24,7 +24,7 @@ export default async function Page() {
 	const lastEntryDate = entry ? entry.datetime : new Date(0);
 	const now = new Date();
 	const didToday = lastEntryDate.getDate() === now.getDate() && lastEntryDate.getMonth() === now.getMonth() && lastEntryDate.getFullYear() === now.getFullYear();
-	const isEntryTime = now.getHours() >= 20;
+	const isEntryTime = true;
 	const welcomePhrase = 
 		didToday ? '오늘 항목 잘 했어요! 이제 잘 쉬고 내일 보세요!'
 			: isEntryTime ? '안녕하세요! 오늘의 항목을 쓸까요?'
