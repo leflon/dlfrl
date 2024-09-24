@@ -1,0 +1,57 @@
+generator client {
+	provider = "prisma-client-js"
+	previewFeatures = ["omitApi"]
+}
+
+datasource db {
+	provider = "mysql"
+	url      = env("DATABASE_URL")
+}
+
+model User {
+	id Int @id @default(autoincrement())
+	username String @db.VarChar(20) @unique
+	password String @db.Char(60)
+	notificationPreference DateTime? @db.Time()
+
+	Subscriptions Subscription[]
+	DailyEntries DailyEntry[]
+	WeeklyEntries WeeklyEntry[]
+}
+
+model Subscription {
+	id Int @id @default(autoincrement())
+	user User @relation(fields: [userId], references: [id])
+	userId Int
+	information Json
+}
+
+enum Mood {
+	VERY_HAPPY
+	HAPPY 
+	NEUTRAL
+	SAD
+	VERY_SAD
+	ANGRY
+}
+
+model DailyEntry {
+	id Int @id @default(autoincrement())
+	user User @relation(fields: [userId], references: [id])
+	userId Int
+	datetime DateTime
+	mood Mood
+	moodReason String @db.Text
+	funFact String @db.Text
+	scheduleRespected String @db.Text
+	nextDaySchedule String @db.Text
+}
+
+model WeeklyEntry {
+	id Int @id @default(autoincrement())
+	user User @relation(fields: [userId], references: [id])
+	userId Int
+	goal String @db.Text
+	goalRespected String @db.Text
+	pride String @db.Text
+}
