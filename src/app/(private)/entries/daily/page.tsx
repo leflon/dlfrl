@@ -18,6 +18,7 @@ export default async function Page() {
 	});
 	const entry = await db.dailyEntry.findFirst({
 		orderBy: {datetime: 'desc'},
+		where: {userId},
 		select: {datetime: true}
 	});
 	const lastEntryDate = entry ? entry.datetime : new Date(0);
