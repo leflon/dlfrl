@@ -10,7 +10,7 @@ export default function Login() {
 			action={action}
 			className='flex flex-col items-center gap-6'
 		>
-			<Image src='/icons/icon-384x384.png' alt='logo' width={128} height={128} className='mt-8' />
+			<Image src='/android-chrome-512x512.png' alt='logo' width={128} height={128} className='mt-8' />
 			<div className='font-title text-4xl'>로그인</div>
 			<div className='text-red-500'>{state?.error && state.error}</div>
 			<input type="text" name="username" placeholder="이름" required />
