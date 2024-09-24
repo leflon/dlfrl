@@ -55,7 +55,7 @@ export default async function DailyEntryPage({params}: {params: {id: string}}) {
 			</Question>
 			<Answer>
 				<Image 
-					src={`/images/${entry.mood}.png`} 
+					src={`/images/${entry.mood.toLowerCase()}.png`} 
 					width={128} 
 					height={128} 
 					alt={entry.mood} 

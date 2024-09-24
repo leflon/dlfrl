@@ -130,7 +130,7 @@ export default function DailyEntryEditor({action}: {
 					<div className='font-title text-4xl'>항목 올리는중...</div>
 					<div className='relative text-center font-input text-lg mx-4'>
 						<Image 
-							src={`/images/${mood}.png`} 
+							src={`/images/${mood.toLowerCase()}.png`} 
 							alt={mood} 
 							width={128} 
 							height={128} 
