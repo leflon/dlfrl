@@ -11,25 +11,25 @@ export default async function middleware(req: NextRequest) {
 	const isProtectedRoute = protectedRoutes.some((route) => path.startsWith(route));
 
 	// 3. Decrypt the session from the cookie
-	const cookie = cookies().get('session')?.value;
+	const cookie = cookies().get('session')?.value || '';
 	let session;
 	try {
 		session = cookie ? await decrypt(cookie) : null;
 	} catch (_) {
-		return NextResponse.redirect(new URL('/logout', base));
+
+		return NextResponse.redirect(base + '/logout');
 	}
 
 	const isLoggedIn = typeof session?.userId === 'number';
 
 	if (path.startsWith('/login') && isLoggedIn) {
-		return NextResponse.redirect(new URL('/entries/daily', base));
+		return NextResponse.redirect(base + '/entries/daily');
 	}
 
 	// 5. Redirect to /login if the user is not authenticated
 	if (isProtectedRoute && !isLoggedIn) {
-		return NextResponse.redirect(new URL('/login', base));
+		return NextResponse.redirect(base + '/login');
 	}
-
 	return NextResponse.next();
 }
 
